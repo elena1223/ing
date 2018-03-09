@@ -20,6 +20,9 @@
 			</div>
 			<hr/>
 			<div align="right" style="padding-right: 20px;">
+			<c:if test="${logon!= null }">
+			<B>[${logon }]</B>
+			</c:if>			
 				<a href="/login"><span>Sign in</span></a> <span>or</span> 
 				<a href="/join"><span>Sign up</span></a>
 			</div>

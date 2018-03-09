@@ -12,7 +12,7 @@ a {
 
 input {
 	padding: 3px;
-	width: 300px;
+	width: 100%;
 }
 </style>
 <body>
@@ -24,8 +24,8 @@ input {
 			</div>
 			<hr />
 			<div align="right" style="padding-right: 20px;">
-				<a href="/login"><span>Sign in</span></a> <span>or</span> <span
-					style="font-weight: bold">Sign up</span>
+				<a href="/login"><span>Sign in</span></a> <span>or</span> 
+				<a href="/join"><span>Sign up</span></a>
 			</div>
 			<hr />
 			<div style="font-size: 17pt; margin-top: 50px;">
@@ -33,22 +33,25 @@ input {
 					모든 요소는 필수기입 항목입니다.</span>
 			</div>
 			<div>
+				<c:if test="${!empty err }">
+					<p style="color:red">${err }</p>
+				</c:if>
 				<form action="/join" method="post"
-					style="width: 330px; text-align: left;" autocomplete="off">
-					<div style="margin-top: 20px;">
+					style="width: 330px; text-align: left; line-height: 34px;" autocomplete="off">
+					<p>
 						<b>ID(*)</b> <small id="checkrst"></small><br /> <input
-							type="text" name="id" id="id" pattern="[a-zA-Z]+">
-					</div>
-					<div style="margin-top: 20px;">
-						<b>PASS(*)</b><br /> <input type="password" name="pass">
-					</div>
-					<div style="margin-top: 20px;">
-						<b>E-MAIL(*)</b><br /> <input type="email" name="email">
-					</div>
-					<div style="margin-top: 20px;">
+							type="text" name="id" id="id" pattern="[a-zA-Z]+" value="${param.id }">
+					</p>
+					<p>
+						<b>EMAIL(*)</b><br /> <input type="email" name="email"  value="${param.email }">
+					</p>
+					<p>
+						<b>PASS(*)</b><br /> <input type="password" name="password">
+					</p>
+					<p>
 						<button id="sbt" type="submit" style="width: 100%; height: 30px;">가
 							입 신 청</button>
-					</div>
+					</p>
 				</form>
 			</div>
 		</div>
