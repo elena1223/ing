@@ -38,11 +38,11 @@
 
 	<bean class="org.mybatis.spring.SqlSessionFactoryBean" id="factory">
 		<property name="dataSource" ref="ds" />
-<!-- 		<property name="mapperLocations"> -->
-<!-- 			<list> -->
-<!-- 				<value>/WEB-INF/mappers/show-mapper.xml</value> -->
-<!-- 			</list> -->
-<!-- 		</property> -->
+		<property name="mapperLocations">
+			<list>
+				<value>/WEB-INF/mappers/*-mapper.xml</value>
+			</list>
+		</property>
 	</bean>
 	
 	<bean id="sqlTemplate" class="org.mybatis.spring.SqlSessionTemplate">
@@ -58,6 +58,7 @@
 			<tx:method name="add*" />
 			<tx:method name="modify*" />
 			<tx:method name="remove*" />
+			<tx:method name="read*" />
 		</tx:attributes>
 	</tx:advice>
 	<aop:config>
