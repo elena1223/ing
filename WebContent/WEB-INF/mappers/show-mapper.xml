@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="show">
+	<select id="readAllShow" parameterType="hashmap">
+		select * from show 	
+	</select>
+	<select id="readSomeByType" resultType="hashmap">
+		select * from show where type = #{type } order by pno asc
+	</select>
+	<select id="readSomeBySerial" resultType="hashmap">
+		select * from show where serial=#{serial}
+	</select>
+	<select id="readPoster" resultType="hashmap">
+		select * from poster where sserial=#{serial}
+	</select>	
+	<select id="readPlace" resultType="hashmap">
+		select * from place order by no asc
+	</select>
+	<insert id="addshow">
+		insert into show values(#{serial},#{type},#{title},#{pno} )
+	</insert>
+	<insert id="addpost">
+		insert into poster values(#{id},#{sserial},#{filename} )
+	</insert>
+	
+</mapper>
+
+
+
+
+
+
+
